@@ -31,7 +31,7 @@ var showForPages = [
     "http://*/*",
     "https://*/*"
 ];
-var title = "Copy real link";
+var title = "Open real link";
 var contexts = ["link"];
 var id = chrome.contextMenus.create({
     "title": title,
