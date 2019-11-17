@@ -15,7 +15,7 @@ function genericOnClick(info, tab) {
     } else if (info.pageUrl.match("http(s|):\/\/.*search.yahoo")) {
         testRE = url.match("RU=([^\/]*)\/");
     } else if (info.pageUrl.match("http(s|):\/\/.*igg-games")) {
-        testRE = url.match("s:\/\/([^&]*)");
+        testRE = url.match("url=.*:\/\/([^&]*)");
     }
     var str = info.linkUrl;
     if (testRE) {
@@ -24,6 +24,7 @@ function genericOnClick(info, tab) {
     var sandbox = $('#sandbox').val(str).select();
     document.execCommand('copy');
     sandbox.val('');
+    chrome.tabs.create({url:'http://' + str});
 }
 
 var showForPages = [
